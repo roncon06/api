@@ -57,25 +57,17 @@ Também contamos com uma documentação feita pelo [swagger](https://swagger.io/
 http://localhost:3000/api
 
 
-### Movie
-**POST /list**: Cria uma nova lista.  
-**POST /list/rate/:id**: Avalia uma lista com uma nota entre 1 e 10.  
-**GET /list**: Retorna todas as listas com filtros e paginação.  
-**GET /list/:id**: Retorna uma lista específica pelo ID.  
-**PATCH /list/:id**: Atualiza uma lista pelo ID.  
-**DELETE /list/:id**: Remove uma lista pelo ID.
 
----
 
 ### Movie
 
 **GET /movies/popular**: Retorna os filmes mais populares
 **GET /movies/:name**: Retorna um filme pelo nome.
 **POST /movies**: Cria um novo filme.  
-**GET /movie**: Retorna todos os filmes.
+**GET /movieS**: Retorna todos os filmes.
 **GET /movies/id**: Retorna um filme específico pelo ID.  
-**PATCH /movie/:id**: Atualiza um filme pelo ID.  
-**DELETE /movie/:id**: Remove um filme pelo ID.
+**PATCH /movieS/:id**: Atualiza um filme pelo ID.  
+**DELETE /movieS/:id**: Remove um filme pelo ID.
 
 ---
 -
