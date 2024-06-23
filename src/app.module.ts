@@ -7,13 +7,21 @@ import { HttpModule, HttpService } from '@nestjs/axios';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ConfigModule } from '@nestjs/config';
+import { config } from 'dotenv';
+import { ThrottlerModule } from '@nestjs/throttler';
+import { LogService } from './log/log.service';
+import { LogController } from './log/log.controller';
+import { LogModule } from './log/log.module';
+config();
 
 
 @Module({
-  imports: [
-    MongooseModule.forRoot('mongodb://0.0.0.0/movies-nest'),
-    MoviesModule, HttpModule, AuthModule, UsersModule],
-  controllers: [AppController],
-  providers: [AppService, MoviesService],
+  imports: [ConfigModule.forRoot( {isGlobal: true} ),
+    MongooseModule.forRoot(process.env.MONGODB_URL),  
+    MoviesModule, HttpModule, AuthModule, UsersModule, LogModule,
+    ],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
