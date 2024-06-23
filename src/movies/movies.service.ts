@@ -17,9 +17,9 @@ export class MoviesService {
   ){}
 
   async getPopularMovies(): Promise<any> {
-  const baseUrl = 'https://api.themoviedb.org/3/movie/popular';
-  const language = 'pt-PT';
-  const apiKey = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZTdmZTIyMDA5YzAyMWZjY2YyODBmNmRhMDhiZjdhOCIsInN1YiI6IjY2NWJhYzc0ZGMyM2Q5NWI5NDcxODhiNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ceUpHJDXmq-hy_Eg5uQLVOEfMqkLVQV9wBmcxicribM'; // Substitua pelo seu próprio token de API
+  const baseUrl = process.env.BASEURL;
+  const language = process.env.LANGUAGE;
+  const apiKey = process.env.APIKEY;
 
   const resultsPerPage = 20; 
   const totalPages = 5; 
@@ -50,10 +50,11 @@ export class MoviesService {
 }
 
 searchMovieByName(movieName: string): Observable<AxiosResponse<any>> {
-  const baseUrl = 'https://api.themoviedb.org/3/search/movie';
-  const language = 'pt-PT';
-  const apiKey = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZTdmZTIyMDA5YzAyMWZjY2YyODBmNmRhMDhiZjdhOCIsInN1YiI6IjY2NWJhYzc0ZGMyM2Q5NWI5NDcxODhiNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ceUpHJDXmq-hy_Eg5uQLVOEfMqkLVQV9wBmcxicribM'; // Substitua pelo seu próprio token de API
 
+  const baseUrl = process.env.BASEURL;
+  const language = process.env.LANGUAGE;
+  const apiKey = process.env.APIKEY;
+  
   const options = {
     params: {
       query: movieName,
@@ -85,7 +86,7 @@ searchMovieByName(movieName: string): Observable<AxiosResponse<any>> {
 
 
     async findById(id: string): Promise<Movie> {
-      return this.movieModel.findById(id).exec();
+      return this.movieModel.findById(id)
     }
 
     async update(id: string, updateMovieDto: UpdateMovieDto): Promise<Movie> {
@@ -99,7 +100,7 @@ searchMovieByName(movieName: string): Observable<AxiosResponse<any>> {
           popularidade: updateMovieDto.popularidade,
         },
         { new: true } // Retorna o documento atualizado
-      ).exec();
+      )
     }
   
 
