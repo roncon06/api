@@ -3,8 +3,8 @@
 ### Trabalho realizado por:
 
 - Lucas Roncon Goncalves - RA: 22014352-2
-- Vitoria Mendes -
-- Anna Julia -
+- Vitoria Mendes - RA: 22137969-2
+- Anna Julia - RA: 22045748-2
 
 
 ## Pré-Requisitos
