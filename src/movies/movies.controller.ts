@@ -5,7 +5,9 @@ import { UpdateMovieDto } from './dto/update-movie.dto';
 import { AxiosResponse } from 'axios';
 import { Observable } from 'rxjs';
 import { AuthGuard } from 'src/auth/auth.guard';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('movies')
 @Controller('movies')
 @UseGuards(AuthGuard) // Aplica o Auth Guard a todas as rotas deste controlador
 export class MoviesController {
